@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo h3 {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+header nav ul li a {
+    text-decoration: none;
+}
+
+header nav ul li:hover {
+    color: #007BFF;
+}
+
+header img {
+    object-fit: cover;
+    border: 1px solid #ccc;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+#hero-section {
+    width: 99vw;
+    height: 80vh;
+    background: url('./picha.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+#hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#hero-section .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+#hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#hero-section p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+#about-us {
+    width: 80%;
+    text-align: center;
+    margin: 50px auto;
+    align-items: center;
+}
+
+#about-us h1 {
+    font-family: 'Inter', sans-serif; /* Modern font similar to Airbnb's style */
+    font-weight: 700; /* Bold for headings */
+    font-size: 2.5rem; /* Adjust size as needed */
+    color: #333; /* Dark gray for better readability */
+    margin-bottom: 10px;
+}
+
+#about-us p {
+    font-family: 'Nunito', sans-serif; /* Clean, readable font for body text */
+    font-weight: 400; /* Regular weight for body */
+    font-size: 1rem; /* Standard paragraph size */
+    line-height: 1.6; /* Spacing for readability */
+    color: #555; /* Slightly lighter gray for text */
+    margin-bottom: 15px;
+    max-width: 800px;
+    margin: auto;
+}
+
+#car-listings {
+    width: 80%;
+    font-family: 'Inter', sans-serif; /* Modern font similar to Airbnb's style */
+    font-weight: 500; /* Bold for headings */
+    font-size: 2rem; /* Adjust size as needed */
+    margin: 50px auto;
+   
+}
+
+#car-listings h2{
+    text-align: center;
+    margin: 30px;
+}
+
+
+#car-listings .car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.car-card {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+}
+
+.car-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.car-card p {
+    font-size: 1rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+
+.tooltip {
+    display: none; /* Hidden by default */
+    position: absolute;
+    bottom: 10px; /* Adjust based on your card's height */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.car-card:hover .tooltip {
+    display: block; /* Show the tooltip on hover */
+    animation: fadeIn 0.3s ease-in-out; /* Optional fade-in effect */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Popup styles */
+#details-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    max-height: 600px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 0;
+    display: none;
+}
+
+#details-popup img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
+}
+
+
+.close-button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+    background-color: #007BFF;
+}
+
+.close-button:hover {
+    color: #000;
+    background-color: white;
+}
+
+#details-popup h3 {
+    margin: 10px 0;
+    font-family: 'Inter', sans-serif; /* Modern font similar to Airbnb's style */
+    font-weight: 700; /* Bold for headings */
+    font-size: 1.5rem; /* Adjust size as needed */
+    color: #333; /* Dark gray for better readability */
+    margin-bottom: 10px;
+}
+
+#details-popup p {
+    margin: 5px 0;
+    color: #555;
+
+    font-family: 'Nunito', sans-serif; /* Clean, readable font for body text */
+    font-weight: 400; /* Regular weight for body */
+    font-size: 1rem; /* Standard paragraph size */
+    line-height: 1.6; /* Spacing for readability */
+    color: #555; /* Slightly lighter gray for text */
+    margin-bottom: 15px;
+    max-width: 800px;
+    margin: auto;
+}
+
+
+
+footer {
+    background-color: #f7f7f7;
+    padding: 40px 5%;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1 1 calc(25% - 20px);
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #007BFF;
+}
+
+.footer-bottom {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s;
+}
+
+.footer-bottom p {
+    color: #999;
+    font-size: 0.85rem;
+}
+
