@@ -1,0 +1,21 @@
+*{
+padding: 0;
+width: 50;
+
+}
+body{
+    width: 100%;
+    background-color: rgb(156, 190, 179);
+    
+    
+}
+
+  .registration{
+    
+    background-color: rgb(241, 240, 255);
+    width: 50%;
+    height: 50dvh;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 25%;
+  }  
